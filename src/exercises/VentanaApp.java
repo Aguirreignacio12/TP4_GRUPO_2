@@ -5,10 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
-import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,6 +44,7 @@ public class VentanaApp extends JFrame {
 		btnEjercicio_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
 		btnEjercicio_1.setBounds(166, 109, 89, 23);
 		panel_4.add(btnEjercicio_1);
+		btnEjercicio_1.addActionListener(new eventoBotonEjercicio2());
 		
 		JButton btnEjercicio_2 = new JButton("Ejercicio 3");
 		btnEjercicio_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
@@ -65,6 +64,15 @@ class eventoBotonEjercicio1 implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Ejercicio1 frame = new Ejercicio1();
+		frame.setVisible(true);
+	}
+	
+}
+class eventoBotonEjercicio2 implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Ejercicio2 frame = new Ejercicio2();
 		frame.setVisible(true);
 	}
 	

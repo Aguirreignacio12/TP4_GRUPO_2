@@ -1,37 +1,32 @@
 package exercises;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.FlowLayout;
 import javax.swing.JTextField;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
 public class Ejercicio1 extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private JTextField txtNacimiento;
 	private JTextField txtTelefono;
 	private JTextField txtApellido;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
 	private JLabel lblMostrar;
 
 
 	public Ejercicio1() {
-		setTitle("TP4 - EJERCICIO 1");
+		setTitle("Contactos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 550, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -48,18 +43,15 @@ public class Ejercicio1 extends JFrame {
 		txtApellido = new JTextField();
 		txtApellido.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Fecha Nac.");
-		
-		JLabel lblNewLabel_1 = new JLabel("Telefono");
-		
-		lblNewLabel_2 = new JLabel("Nombre");
-		
-		lblNewLabel_3 = new JLabel("Apellido");
-		
-		JButton btnMostrar = new JButton("Mostrar");
-		
+		JLabel lblNombre = new JLabel("Nombre");
+        JLabel lblApellido = new JLabel("Apellido");
+        JLabel lblTelefono = new JLabel("Tel�fono");
+        JLabel lblNacimiento = new JLabel("Fecha Nac.");
+
+        JButton btnMostrar = new JButton("Mostrar");
+			
 		lblMostrar = new JLabel("lblMostrar");
-		 lblMostrar.setForeground(Color.BLACK);
+		lblMostrar.setForeground(Color.BLACK);
 		 
 
 	        btnMostrar.addActionListener(new ActionListener() {
@@ -73,7 +65,7 @@ public class Ejercicio1 extends JFrame {
 	                txtTelefono.setBackground(Color.WHITE);
 	                txtNacimiento.setBackground(Color.WHITE);
 
-	                // Validar si los campos están vacíos
+	                // Validar si los campos estan vacios
 	                if (txtNombre.getText().isEmpty()) {
 	                    txtNombre.setBackground(Color.RED);
 	                    camposCompletos = false;
@@ -94,9 +86,9 @@ public class Ejercicio1 extends JFrame {
 	                if (camposCompletos) {
 	                    // Mostrar los datos en el JLabel
 	                    lblMostrar.setText(
-	                        "Nombre: " + txtNombre.getText() + 
+	                        " Nombre: " + txtNombre.getText() + 
 	                        ", Apellido: " + txtApellido.getText() + 
-	                        ", Teléfono: " + txtTelefono.getText() + 
+	                        ", Telefono: " + txtTelefono.getText() + 
 	                        ", Fecha de Nac.: " + txtNacimiento.getText()
 	                    );
 
@@ -110,57 +102,59 @@ public class Ejercicio1 extends JFrame {
 	                }
 	            }
 	        });
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblMostrar, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-							.addGap(222)
-							.addComponent(btnMostrar))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(37)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-								.addComponent(lblNewLabel_3, GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-								.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtApellido, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtTelefono, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-								.addComponent(txtNacimiento, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))))
-					.addGap(424))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(28)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_2))
-					.addGap(18)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_3)
-						.addComponent(txtApellido, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_1)
-						.addComponent(txtTelefono, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel)
-						.addComponent(txtNacimiento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblMostrar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnMostrar))
-					.addContainerGap(42, Short.MAX_VALUE))
-		);
-		contentPane.setLayout(gl_contentPane);
+	        GroupLayout gl_contentPane = new GroupLayout(contentPane);
+	        gl_contentPane.setHorizontalGroup(
+	        	gl_contentPane.createParallelGroup(Alignment.LEADING)
+	        		.addGroup(gl_contentPane.createSequentialGroup()
+	        			.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+	        				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+	        					.addGap(20)
+	        					.addComponent(lblMostrar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+	        				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+	        					.addGap(43)
+	        					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+	        						.addComponent(lblNombre)
+	        						.addComponent(lblTelefono)
+	        						.addComponent(lblApellido)
+	        						.addComponent(lblNacimiento))
+	        					.addGap(24)
+	        					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+	        						.addGroup(gl_contentPane.createSequentialGroup()
+	        							.addGap(97)
+	        							.addComponent(btnMostrar))
+	        						.addComponent(txtNacimiento, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+	        						.addGroup(gl_contentPane.createSequentialGroup()
+	        							.addGap(1)
+	        							.addComponent(txtTelefono))
+	        						.addComponent(txtApellido)
+	        						.addComponent(txtNombre))))
+	        			.addContainerGap(92, Short.MAX_VALUE))
+	        );
+	        gl_contentPane.setVerticalGroup(
+	        	gl_contentPane.createParallelGroup(Alignment.LEADING)
+	        		.addGroup(gl_contentPane.createSequentialGroup()
+	        			.addGap(20)
+	        			.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+	        				.addComponent(lblNombre)
+	        				.addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+	        			.addGap(18)
+	        			.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+	        				.addComponent(lblApellido)
+	        				.addComponent(txtApellido, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+	        			.addGap(18)
+	        			.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+	        				.addComponent(lblTelefono)
+	        				.addComponent(txtTelefono, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+	        			.addGap(18)
+	        			.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+	        				.addComponent(lblNacimiento)
+	        				.addComponent(txtNacimiento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+	        			.addGap(18)
+	        			.addComponent(btnMostrar)
+	        			.addGap(18)
+	        			.addComponent(lblMostrar, GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
+	        );
+	        contentPane.setLayout(gl_contentPane);
+	
 	}
 }

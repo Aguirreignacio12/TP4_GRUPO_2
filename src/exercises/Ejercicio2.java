@@ -46,7 +46,7 @@ public class Ejercicio2 extends JFrame {
        txtPromedio.setEditable(false); // No editable, solo para mostrar el resultado
        panelResultados.add(txtPromedio);
                                 
-       JLabel label_5 = new JLabel("Condición:");
+       JLabel label_5 = new JLabel("Condicion:");
        label_5.setBounds(16, 61, 80, 26);
        panelResultados.add(label_5);
        JTextField txtCondicion = new JTextField(5);
@@ -87,12 +87,13 @@ public class Ejercicio2 extends JFrame {
        JLabel label_3 = new JLabel("TPS:");
        label_3.setBounds(6, 127, 112, 24);
        panelNotas.add(label_3);
-       JComboBox ComboBoxTPS = new JComboBox();
+       
+       //JComboBox ComboBoxTPS = new JComboBox();
        JComboBox<String> comboBoxTPS = new JComboBox<>();
        comboBoxTPS.addItem("Aprobado");
        comboBoxTPS.addItem("Desaprobado");
-       ComboBoxTPS.setBounds(118, 127, 112, 24);
-       panelNotas.add(ComboBoxTPS);
+       comboBoxTPS.setBounds(118, 127, 112, 24);
+       panelNotas.add(comboBoxTPS);
 
 // Panel para botones
         
@@ -111,16 +112,54 @@ public class Ejercicio2 extends JFrame {
                                         
        contentPane.add(panelBotones); 
        
-// Acción para Calcular (btbCalcular)
-       
+// Acciï¿½n para Calcular (btbCalcular)
+    
+       btnCalcular.addActionListener(new ActionListener() {
+            
+              public void actionPerformed(ActionEvent e){
+
+              double nota1 = Double.parseDouble(txtNota1.getText());
+              double nota2 = Double.parseDouble(txtNota2.getText());
+              double nota3 = Double.parseDouble(txtNota3.getText());
+              
+              
+
+              // Calcular el promedio
+              double promedio = (nota1 + nota2 + nota3) / 3;
+              txtPromedio.setText(String.valueOf(promedio));
+
+              // Determinar la condiciÃ³n
+              String condicion = "Sin condicion";
+              boolean TP = true;
+
+              if (comboBoxTPS.getSelectedItem().equals("Desaprobado")) 
+              {
+              condicion = "Libre";
+              TP = false;
+              }  if (nota1 < 6 || nota2 < 6 || nota3 < 6) {
+              condicion = "Libre";
+              }  if (nota1 >= 8 && nota2 >= 8 && nota3 >= 8 && TP) {
+              condicion = "Promociona";
+              }  if (nota1 >= 6 && nota1 < 8 && nota2 >= 6 && nota2 < 8 && nota3 >= 6 && nota3 < 8 && TP) {
+              condicion = "Regular";
+              } 
+              
+              txtCondicion.setText(condicion);
+
+
+              }
+       });
+
+
+    
        // rellena txtPromedio
 
        
        // rellena txtCondiciona
                                                         
-// Acción para limpiar los campos (btnNuevo)
+// Acciï¿½n para limpiar los campos (btnNuevo)
                                                                                                                                
-// Acción para salir (btbSalir)
+// Acciï¿½n para salir (btbSalir)
        
     }     
 }

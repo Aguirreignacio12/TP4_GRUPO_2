@@ -1,8 +1,10 @@
 package exercises;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -57,6 +59,57 @@ public class Ejercicio1 extends JFrame {
 		JButton btnMostrar = new JButton("Mostrar");
 		
 		lblMostrar = new JLabel("lblMostrar");
+		 lblMostrar.setForeground(Color.BLACK);
+		 
+
+	        btnMostrar.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                boolean camposCompletos = true;
+
+	                // Resetear colores de fondo
+	                txtNombre.setBackground(Color.WHITE);
+	                txtApellido.setBackground(Color.WHITE);
+	                txtTelefono.setBackground(Color.WHITE);
+	                txtNacimiento.setBackground(Color.WHITE);
+
+	                // Validar si los campos están vacíos
+	                if (txtNombre.getText().isEmpty()) {
+	                    txtNombre.setBackground(Color.RED);
+	                    camposCompletos = false;
+	                }
+	                if (txtApellido.getText().isEmpty()) {
+	                    txtApellido.setBackground(Color.RED);
+	                    camposCompletos = false;
+	                }
+	                if (txtTelefono.getText().isEmpty()) {
+	                    txtTelefono.setBackground(Color.RED);
+	                    camposCompletos = false;
+	                }
+	                if (txtNacimiento.getText().isEmpty()) {
+	                    txtNacimiento.setBackground(Color.RED);
+	                    camposCompletos = false;
+	                }
+
+	                if (camposCompletos) {
+	                    // Mostrar los datos en el JLabel
+	                    lblMostrar.setText(
+	                        "Nombre: " + txtNombre.getText() + 
+	                        ", Apellido: " + txtApellido.getText() + 
+	                        ", Teléfono: " + txtTelefono.getText() + 
+	                        ", Fecha de Nac.: " + txtNacimiento.getText()
+	                    );
+
+	                    // Limpiar los campos
+	                    txtNombre.setText("");
+	                    txtApellido.setText("");
+	                    txtTelefono.setText("");
+	                    txtNacimiento.setText("");
+	                } else {
+	                    lblMostrar.setText("Por favor, complete todos los campos.");
+	                }
+	            }
+	        });
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)

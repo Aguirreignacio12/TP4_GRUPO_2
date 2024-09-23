@@ -90,10 +90,12 @@ public class Ejercicio2 extends JFrame {
        
        //JComboBox ComboBoxTPS = new JComboBox();
        JComboBox<String> comboBoxTPS = new JComboBox<>();
+       comboBoxTPS.addItem("");
        comboBoxTPS.addItem("Aprobado");
        comboBoxTPS.addItem("Desaprobado");
        comboBoxTPS.setBounds(118, 127, 112, 24);
        panelNotas.add(comboBoxTPS);
+       comboBoxTPS.setSelectedIndex(0); 
 
 // Panel para botones
         
@@ -150,16 +152,33 @@ public class Ejercicio2 extends JFrame {
               }
        });
 
+       btnNuevo.addActionListener(new ActionListener() {
+            
+              public void actionPerformed(ActionEvent e){
 
+              txtNota1.setText("");
+              txtNota2.setText("");
+              txtNota3.setText("");
+              txtPromedio.setText("");
+              txtCondicion.setText("");
+              comboBoxTPS.setSelectedIndex(0); 
+              }
+              
+       });
     
-       // rellena txtPromedio
+       btnSalir.addActionListener(new ActionListener() {
+            
+              public void actionPerformed(ActionEvent e){
 
-       
-       // rellena txtCondiciona
+                     dispose();
+                     
+              }
+              
+       });
+      
                                                         
-// Acci�n para limpiar los campos (btnNuevo)
+
                                                                                                                                
-// Acci�n para salir (btbSalir)
-       
+
     }     
 }

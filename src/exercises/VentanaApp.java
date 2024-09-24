@@ -50,8 +50,9 @@ public class VentanaApp extends JFrame {
 		btnEjercicio_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
 		btnEjercicio_2.setBounds(166, 143, 89, 23);
 		panel_4.add(btnEjercicio_2);
+		btnEjercicio_2.addActionListener(new eventoBotonEjercicio3());
 		
-		JLabel lblTpgrupo = new JLabel("GRUPO NRO: 4");
+		JLabel lblTpgrupo = new JLabel("GRUPO NRO: 2");
 		lblTpgrupo.setBounds(35, 24, 118, 23);
 		panel_4.add(lblTpgrupo);
 		lblTpgrupo.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
@@ -73,6 +74,15 @@ class eventoBotonEjercicio2 implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Ejercicio2 frame = new Ejercicio2();
+		frame.setVisible(true);
+	}
+	
+}
+class eventoBotonEjercicio3 implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Ejercicio3 frame = new Ejercicio3();
 		frame.setVisible(true);
 	}
 	

@@ -141,6 +141,13 @@ public class Ejercicio3 extends JFrame {
                                + "Horas en Computador: " + horas;
                 
                 JOptionPane.showMessageDialog(contentPane, mensaje, "Información Seleccionada", JOptionPane.INFORMATION_MESSAGE);
+                
+             // LIMPIAR LOS CAMPOS
+                group.clearSelection();  //RadioButtons
+                checkBoxP.setSelected(false);  // CHECK DE PROG.
+                checkBoxA.setSelected(false);  // CHECK DE ADMIN
+                checkBoxDG.setSelected(false); // CHECK DE DG.
+                txtHoras.setText("");          // CAMPO TXT.
             }
         });
     }
